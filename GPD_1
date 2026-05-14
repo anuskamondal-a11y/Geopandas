@@ -1,1 +1,19 @@
+import geopandas
+from geodatasets import get_path
+mypath=get_path("nybb")
+gdf=geopandas.read_file(mypath)
+print(gdf)
+
+#finding area
+gdf=gdf.set_index("BoroName")
+gdf["area"]=gdf.area
+print(gdf["area"])
+
+#finding polygon boundary
+gdf["boundary"]=gdf.boundary
+print(gdf["boundary"])
+
+#finding the centroid
+gdf["centroid"]=gdf.centroid
+print(gdf["centroid"])
 
