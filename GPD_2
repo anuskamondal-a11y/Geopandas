@@ -1,1 +1,13 @@
+import geopandas as gpd
+
+#read a shapefile 
+river=gpd.read_file(r"C:\Users\Admin\Prog. for Ent GIS\Clipped_river.shp")
+
+#check the current crs
+current_crs=river.crs
+print(f"Current crs of the shapefile: {current_crs}")
+
+#convert the crs using EPSG code for National Geodetic Reference (Kalianpur 1975)
+new_crs=river.to_crs(4146)
+print(f"New crs of the shapefile: {new_crs}")
 
